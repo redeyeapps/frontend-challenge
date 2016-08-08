@@ -9,7 +9,7 @@ The solution we're looking for is a simple digital version of what we keep on th
 
 ## Specifications
 
-We keep track of who's ahead of who on a simple 'leaderboard' on a whiteboard in the RedEye office, to denote who is the
+We use a 'leaderboard' on a whiteboard in the RedEye office to denote who is the
 ping ping champion (it's usually Woody). When Player 1 beats Player 2 in a game, Player 1 is able to jump to the spot 
 directly above Player 2 on the leaderboard, pushing everyone below them down the leaderboard.
 
@@ -20,7 +20,8 @@ The application should list the players on the left, sorted by ranking. The user
 and then decide the winner of the game. By deciding the winner, it should update the leaderboard with the new standings
 and then clear the "currently playing" area of the application.
 
-There is no requirement to be able to add/remove players.
+There is no requirement to be able to add/remove players. There is a file called `players.js` which contains the list of
+players to use (you can do anything you want with this file, it's just as sample).
 
 Below are mockups that the app should ideally be as close to as possible. The font utilised is Lato. The app will be
 tested in Chrome, so feel free to use modern things like flexbox. You're welcome to use a CSS framework, but it probably
