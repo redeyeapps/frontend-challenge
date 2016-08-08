@@ -57,7 +57,8 @@ Some hints:
 ## Submitting:
 
 You should find a branch with your name which you can fork into your own account and create a pull request back to **your**
-branch. If you cannot find a branch with your name, or are having difficult, contact Tom.
+branch. If you cannot find a branch with your name, or are having difficult, contact Tom. We _do_ want to see you committing,
+so don't worry about having to rebase 100 commits into one pretty commit for us, we're interested in the history.
 
 ## Questions:
 
