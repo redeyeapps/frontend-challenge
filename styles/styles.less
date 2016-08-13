@@ -1,10 +1,91 @@
 // @TODO: Only take which fonts (weights etc) we actually need
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,300italic,100italic,400italic,700,700italic,900,900italic);
 
-.lato() {
-  font-family: 'Lato', sans-serif;
+@nearblack: #202020;
+
+.flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-body {
-  .lato();
+html, body {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  height: 100%;
+}
+
+.player-list {
+  counter-reset: player-counter;
+}
+
+.player {
+  display: table;
+  padding: 6px 10px 16px;
+  border-bottom: 1px solid lightgrey;
+  width: 100%
+}
+
+.player-row {
+  display: table-row;
+}
+
+.player-rank:before {
+  content: "#" counter(player-counter);
+	counter-increment: player-counter;
+  font-size: 2em;
+  font-weight: 400;
+  color: darkgrey;
+}
+
+.player-rank {
+  display: table-cell;
+  padding: 0 10px;
+  width: 1px;
+}
+
+.player-name {
+  display: table-cell;
+  font-weight: 600;
+  vertical-align: top;
+  padding: 3px 0;
+}
+
+.button {
+  font-size: 0.75em;
+  display: inline-block;
+  background: @nearblack;
+  color: white;
+  padding: 4px 7px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.shell {
+  height: 100%;
+  display: flex;
+}
+
+.play-space {
+  background: @nearblack;
+  flex: 1;
+  .flex-center()
+}
+
+.no-selection:before {
+  color: lightgrey;
+  content: "SELECT A PLAYER";
+}
+.player-1, .player-2, .vs-block {
+  background: white;
+  .flex-center()
+}
+.player-1, .player-2 {
+  height: 100px;
+  width: 400px;
+}
+.vs-block {
+  height: 50px;
+  width: 50px;
+  margin: 50px;
 }
