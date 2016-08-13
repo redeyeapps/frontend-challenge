@@ -13,9 +13,21 @@
       </div>
     </div>
     <div class="play-space">
-      <div class="player-1 ${!player1sel ? 'no-selection' : ''}">${player1val}</div>
+      <div class="player-1 ${!player1sel ? 'no-selection' : 'selected'}">
+        ${player1val}
+        <div class="button-row ${!player1sel ? 'hide-buttons' : ''}">
+          <div class="button" click.delegate="remove(1)">REMOVE</div>
+          <div class="button player-1-win" click.delegate="winner(1)">WINNER</div>
+        </div>
+      </div>
       <div class="vs-block">VS</div>
-      <div class="player-2 ${player1sel && !player2sel ? 'no-selection' : ''}">${player2val}</div>
+      <div class="player-2 ${player1sel && !player2sel ? 'no-selection' : 'selected'}">
+        ${player2val}
+        <div class="button-row ${!player2sel ? 'hide-buttons' : ''}">
+          <div class="button" click.delegate="remove(2)">REMOVE</div>
+          <div class="button player-2-win" click.delegate="winner(2)">WINNER</div>
+        </div>
+      </div>
     </div>
   </div>
 </template>

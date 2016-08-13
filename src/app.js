@@ -16,10 +16,40 @@ export class App {
       this.player1val = player;
       this.player1sel = true;
     }
-    else if (!this.player2sel) {
+    else if (!this.player2sel && player != this.player1val) {
       console.log("Player 2 Selected");
       this.player2val = player;
       this.player2sel = true;
+    }
+  }
+  
+  remove(player) {
+    if (player == 1) {
+      this.player1val = "";
+      this.player1sel = false;
+    }
+    else if (player == 2) {
+      this.player2val = "";
+      this.player2sel = false;
+    }
+  }
+  
+  winner(player) {
+    if (this.player1sel && this.player2sel) {
+      var p1i = this.players.indexOf(this.player1val)
+      var p2i = this.players.indexOf(this.player2val)
+      if (player == 1 && p2i < p1i) {
+        this.players.splice(p1i, 1)
+        this.players.splice(p2i, 0, this.player1val)
+      }
+      else if (player == 2 && p1i < p2i) {
+        this.players.splice(p2i, 1)
+        this.players.splice(p1i, 0, this.player2val)
+      }
+      this.player1sel = false;
+      this.player2sel = false;
+      this.player2val = "";
+      this.player1val = "";
     }
   }
 }
