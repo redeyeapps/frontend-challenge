@@ -11,7 +11,7 @@ export class App {
   }
   
   play(player) {
-    if (!this.player1sel) {
+    if (!this.player1sel && player != this.player2val) {
       console.log("Player 1 Selected");
       this.player1val = player;
       this.player1sel = true;
