@@ -82,9 +82,6 @@ html, body {
   color: darkgrey;
   content: "SELECT A PLAYER";
 }
-.selected {
-  font-size: 1.75em;
-}
 .player-1, .player-2, .vs-block {
   background: white;
   .flex-center()
@@ -94,6 +91,7 @@ html, body {
   width: 550px;
   font-weight: @light;
   flex-direction: column;
+  color: white;
 }
 .vs-block {
   height: 50px;
@@ -116,4 +114,9 @@ html, body {
 }
 .hide-buttons {
   display: none;
+}
+.selected {
+  font-size: 1.75em;
+  color: black;
+  -webkit-transition: font-size 1s, color 2s;
 }
