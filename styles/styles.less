@@ -15,6 +15,13 @@
   justify-content: center;
 }
 
+.winner-screen() {
+  position: relative;
+  height: 250px;
+  -webkit-transition: left 1s, height 1s;
+  z-index: 1;
+}
+
 html, body {
   font-family: 'Lato', sans-serif;
   margin: 0;
@@ -92,6 +99,9 @@ html, body {
   font-weight: @light;
   flex-direction: column;
   color: white;
+  -webkit-transition: left 1s, height 1s;
+  position: relative;
+  left: 0;
 }
 .vs-block {
   height: 50px;
@@ -118,5 +128,18 @@ html, body {
 .selected {
   font-size: 1.75em;
   color: black;
-  -webkit-transition: font-size 1s, color 2s;
+  -webkit-transition: font-size 1s, color 2s, left 1s, height 1s;
+}
+.player-1-winner-screen {
+  left: 320px;
+  .winner-screen()
+}
+.player-2-winner-screen {
+  left: -320px;
+  .winner-screen()
+}
+.large-button {
+  -webkit-transition: all 1.5s;
+  font-size: 1.5em;
+  color: black;
 }

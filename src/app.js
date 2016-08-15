@@ -6,6 +6,8 @@ export class App {
     this.players = Players;
     this.player1sel = false;
     this.player2sel = false;
+    this.player1win = false;
+    this.player2win = false;
     this.player1val = "";
     this.player2val = "";
   }
@@ -38,18 +40,30 @@ export class App {
     if (this.player1sel && this.player2sel) {
       var p1i = this.players.indexOf(this.player1val)
       var p2i = this.players.indexOf(this.player2val)
-      if (player == 1 && p2i < p1i) {
-        this.players.splice(p1i, 1)
-        this.players.splice(p2i, 0, this.player1val)
+      if (player == 1) {
+        if (p2i < p1i) {
+          this.players.splice(p1i, 1)
+          this.players.splice(p2i, 0, this.player1val)
+        }
+        this.player1win = true;
+        this.player2sel = false;
       }
-      else if (player == 2 && p1i < p2i) {
-        this.players.splice(p2i, 1)
-        this.players.splice(p1i, 0, this.player2val)
+      else if (player == 2) {
+        if (p1i < p2i) {
+          this.players.splice(p2i, 1)
+          this.players.splice(p1i, 0, this.player2val)
+        }
+        this.player2win = true;
+        this.player1sel = false;
       }
-      this.player1sel = false;
-      this.player2sel = false;
-      this.player2val = "";
-      this.player1val = "";
+      setTimeout(() => {
+        this.player1win = false;
+        this.player2win = false;
+        this.player1val = "";
+        this.player2val = "";
+        this.player1sel = false;
+        this.player2sel = false;
+      }, 2000)
     }
   }
 }
