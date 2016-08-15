@@ -1,10 +1,187 @@
 // @TODO: Only take which fonts (weights etc) we actually need
-@import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,300italic,100italic,400italic,700,700italic,900,900italic);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
 
-.lato() {
-  font-family: 'Lato', sans-serif;
+@nearblack: #202020;
+@player1color: #FF4040;
+@player2color: #0080A0;
+@light: 300;
+@normal: 400;
+@bold: 700;
+@extrabold: 900;
+
+.flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-body {
-  .lato();
+.winner-screen() {
+  position: relative;
+  height: 250px;
+  -webkit-transition: all 1.25s;
+  font-size: 3em;
+  z-index: 1;
+}
+
+html, body {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  height: 100%;
+}
+
+.player-list {
+  counter-reset: player-counter;
+}
+
+.player {
+  display: table;
+  padding: 6px 10px 16px;
+  border-bottom: 1px solid lightgrey;
+  width: 100%
+}
+
+.player-row {
+  display: table-row;
+}
+
+.player-rank:before {
+  content: "#" counter(player-counter);
+	counter-increment: player-counter;
+  font-size: 2em;
+  color: darkgrey;
+}
+
+.player-rank {
+  display: table-cell;
+  padding: 0 10px;
+  width: 1px;
+}
+
+.player-name {
+  display: table-cell;
+  font-weight: @bold;
+  vertical-align: top;
+  padding: 3px 0;
+}
+
+.button {
+  font-size: 0.75em;
+  font-weight: @normal;
+  display: inline-block;
+  background: @nearblack;
+  color: white;
+  padding: 4px 7px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.shell {
+  height: 100%;
+  display: flex;
+}
+
+.play-space {
+  background: @nearblack;
+  flex: 1;
+  .flex-center()
+}
+
+.no-selection:before {
+  color: darkgrey;
+  content: "SELECT A PLAYER";
+}
+.player-1, .player-2, .vs-block {
+  background: white;
+  .flex-center()
+}
+.player-1, .player-2 {
+  height: 150px;
+  width: 550px;
+  font-weight: @light;
+  flex-direction: column;
+  color: white;
+  -webkit-transition: left 1s, height 1s, top 1s;
+  position: relative;
+  left: 0;
+  top: 0;
+}
+.vs-block {
+  height: 50px;
+  width: 50px;
+  margin: 20px;
+  font-size: 1.25em;
+  font-weight: @extrabold;
+}
+.button-row {
+  font-size: 0.57em;
+  padding-top: 16px;
+}
+.player-1-win {
+  background: @player1color;
+  margin-left: 2px;
+}
+.player-2-win {
+  background: @player2color;
+  margin-left: 2px;
+}
+.hide-buttons {
+  display: none;
+}
+.selected {
+  font-size: 1.75em;
+  color: black;
+  -webkit-transition: font-size 1s, color 2s, left 1s, height 1s, top 1s;
+}
+.player-1-winner-screen {
+  left: 320px;
+  .winner-screen()
+}
+.player-2-winner-screen {
+  left: -320px;
+  .winner-screen()
+}
+.large-button {
+  font-size: 0.9em;
+  border: 3px outset grey;
+}
+@media (max-width: 1400px) {
+  .shell {
+    flex-direction: column;
+  }
+  .play-space {
+    flex: 3;
+  }
+  .player-list {
+    width: 100%;
+    flex: 1;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+}
+@media (max-width: 1200px) {
+  .player-1, .player-2 {
+    width: 320px;
+  }
+  .player-1-winner-screen {
+    left: 220px;
+  }
+  .player-2-winner-screen {
+    left: -220px;
+  }
+}
+@media (max-width: 800px) {
+  .play-space {
+    flex-direction: column;
+    height: 420px;
+  }
+  .player-1-winner-screen {
+    left: 0;
+    top: 95px;
+    height: 150px;
+  }
+  .player-2-winner-screen {
+    left: 0;
+    top: -95px;
+    height: 150px;
+  }
 }
