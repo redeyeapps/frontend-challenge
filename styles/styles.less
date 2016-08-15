@@ -100,9 +100,10 @@ html, body {
   font-weight: @light;
   flex-direction: column;
   color: white;
-  -webkit-transition: left 1s, height 1s;
+  -webkit-transition: left 1s, height 1s, top 1s;
   position: relative;
   left: 0;
+  top: 0;
 }
 .vs-block {
   height: 50px;
@@ -129,7 +130,7 @@ html, body {
 .selected {
   font-size: 1.75em;
   color: black;
-  -webkit-transition: font-size 1s, color 2s, left 1s, height 1s;
+  -webkit-transition: font-size 1s, color 2s, left 1s, height 1s, top 1s;
 }
 .player-1-winner-screen {
   left: 320px;
@@ -142,4 +143,45 @@ html, body {
 .large-button {
   font-size: 0.9em;
   border: 3px outset grey;
+}
+@media (max-width: 1400px) {
+  .shell {
+    flex-direction: column;
+  }
+  .play-space {
+    flex: 3;
+  }
+  .player-list {
+    width: 100%;
+    flex: 1;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+}
+@media (max-width: 1200px) {
+  .player-1, .player-2 {
+    width: 320px;
+  }
+  .player-1-winner-screen {
+    left: 220px;
+  }
+  .player-2-winner-screen {
+    left: -220px;
+  }
+}
+@media (max-width: 800px) {
+  .play-space {
+    flex-direction: column;
+    height: 420px;
+  }
+  .player-1-winner-screen {
+    left: 0;
+    top: 95px;
+    height: 150px;
+  }
+  .player-2-winner-screen {
+    left: 0;
+    top: -95px;
+    height: 150px;
+  }
 }
